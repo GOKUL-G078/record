@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h> 
 #define PI 3.14
-float calculateDiameter(float x1, float y1, float x2, float y2);
-float calculateArea(float diameter);
-float calculatePerimeter(float diameter);
+float Diameter(float, float, float, float);
+float Area(float);
+float Perimeter(float);
 
 int main()
 {
@@ -14,9 +14,9 @@ int main()
     scanf("%d %d", &x1, &y1);
     printf("Enter coordinates of point 2 (x2 y2): ");
     scanf("%d %d", &x2, &y2);
-    diameter = calculateDiameter((float)x1, (float)y1, (float)x2, (float)y2);
-    area = calculateArea(diameter);
-    perimeter = calculatePerimeter(diameter);
+    diameter = Diameter((float)x1, (float)y1, (float)x2, (float)y2);
+    area = Area(diameter);
+    perimeter = Perimeter(diameter);
 
     printf("\n Circle Properties");
     printf("\nDiameter: %f", diameter);
@@ -25,19 +25,18 @@ int main()
     return 0;
 }
 
-float calculateDiameter(float x1, float y1, float x2, float y2) 
+float Diameter(float x1, float y1, float x2, float y2) 
 {
-    return sqrtf(powf(x2 - x1, 2) + powf(y2 - y1, 2));
+    return sqrtf((x2 - x1)*2+ (y2 - y1)*2);
 }
 
-float calculateArea(float diameter) 
+float Area(float diameter) 
 {
     float radius = diameter / 2.0f;
-    return PI * powf(radius, 2);
+    return PI * (radius*2);
 }
 
-float calculatePerimeter(float diameter) 
+float Perimeter(float diameter) 
 {
     return PI * diameter;
 }
-a;gprithm
