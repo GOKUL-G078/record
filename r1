@@ -1,0 +1,72 @@
+#include <stdio.h>
+float largest(float , float , float);
+float smallest(float , float , float);
+void  average(float , float , float);
+int main()
+{
+    float m1, m2, m3;
+    printf("Enter marks for three subjects (0-100):\n");
+    scanf("%f %f %f", &m1, &m2, &m3);
+    if (m1 > 100 || m2 > 100 || m3 > 100 || m1 < 0 || m2 < 0 || m3 < 0) 
+    {
+        printf("Invalid input. Marks must be between 0 and 100.\n");
+        return 1;
+    }
+    printf("\n Results ");
+    printf("\nLargest Mark: %.2f", largest(m1, m2, m3));
+    printf("\nSmallest Mark: %.2f", smallest(m1, m2, m3));  
+    average(m1, m2, m3);
+    return 0;
+}
+// a) largest number using nested if-
+float largest(float m1, float m2, float m3)
+{
+    if (m1 >= m2) 
+    {
+        if (m1 >= m3)
+            return m1;
+        else
+            return m3;
+    } 
+    else
+    {
+        if (m2 >= m3)
+            return m2;
+        else
+            return m3;
+    }
+}
+// b) Find the smallest using if–else if
+float smallest(float m1, float m2, float m3)
+{
+    if (m1 <= m2 && m1 <= m3)
+    {
+        return m1;
+    }
+    else if (m2 <= m1 && m2 <= m3)
+    {
+        return m2;
+    } 
+    else
+    {
+        return m3;
+    }
+}
+
+// c) Calculate average and assign V using conditional operator
+void average(float m1, float m2, float m3)
+{
+    float average = (m1 + m2 + m3) / 3.0;
+    int v;
+    if (average>=50)
+       {
+           v=1;
+       }
+    else
+       {
+           v=0;
+       }
+    printf("\nAverage Marks: %.2f", average);
+    printf("\nValue of V: %d\n", v);
+}
+write an algorithm on this code
